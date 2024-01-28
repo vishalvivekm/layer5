@@ -52,7 +52,7 @@ const UseCases = () => {
       <Container>
         <div className="workshop-grid-wrapper">
           <Row>
-            {data.allMdx.nodes.map(({ id, frontmatter}) => (
+            {data.allMdx.nodes.map(({ id, frontmatter }) => (
               <Col {...content && ID === id ? { xs: 12, sm: 12, lg: 12 } : { xs: 12, sm: 6, lg: 4 } } key={id} className="workshop-grid-col">
                 <div className="workshop-grid-card">
                   <WorkshopCard frontmatter={frontmatter} content={content} ID={ID} id={id} />
