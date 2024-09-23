@@ -69,17 +69,7 @@ const EventSingle = ({ data }) => {
         <Container>
           <div className="event-info-block">
             <div className="tags">
-
-              { frontmatter.register &&
-                  <EventForm
-                    title="Register Today!"
-                    form="event"
-                    account_desc="Please provide at least one account."
-                    submit_title = {`Thank you for registering to ${frontmatter.title}!`}
-                    submit_body = {`You are now signed up for the ${frontmatter.title} workshop by Layer5. Please patiently await your acceptance. We'll send out additional information about the event soon.`}
-                  />
-              }
-
+            <div className="content-wrapper">
               <MDXRenderer>{body}</MDXRenderer>
               <ul className="speakers">
                 {
@@ -91,7 +81,20 @@ const EventSingle = ({ data }) => {
                   </li>
                 ))}
               </ul>
-              {showJoinUsButton && (
+              </div>
+              { frontmatter.register &&
+                <div className="register-form">
+                  <EventForm
+                    title="Register Today!"
+                    form="event"
+                    account_desc="Please provide at least one account."
+                    submit_title = {`Thank you for registering to ${frontmatter.title}!`}
+                    submit_body = {`You are now signed up for the ${frontmatter.title} workshop by Layer5. Please patiently await your acceptance. We'll send out additional information about the event soon.`}
+                  />
+                </div>
+              }
+            </div>
+            {showJoinUsButton && (
                 <div className="event-title">
                   <Button primary url={frontmatter.eurl} external={true}>
                     <h3>
@@ -100,7 +103,6 @@ const EventSingle = ({ data }) => {
                   </Button>
                 </div>
               )}
-            </div>
             <CTA_Bottom
               category={"Kanvas"}
             />
